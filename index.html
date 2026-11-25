@@ -8,15 +8,15 @@
 <meta property="og:title" content="Simo Alami — Portfolio">
 <meta property="og:description" content="Jeux vidéo, programmation graphique et projets logiciels.">
 <meta property="og:image" content="assets/enso-menu3.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23151414' stroke-width='4'/%3E%3Ccircle cx='17' cy='17' r='5' fill='%23d7261e'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* VOICE: confident, direct, a student programmer's portfolio — calm, concrete, no hype
-   IDEA: an ink ensō framing a rendered scene: ENSO's ink + the graphics programmer's spheres
-   PICTURE: hero ensō with lit spheres; every case study gets its own drawn scene or diagram
-   COLOUR and TYPE: paper white / ink black, one sharp vermilion; Archivo 800 + IBM Plex Sans
-   LAYOUT: home (hero, featured case studies, other projects, skills, background) + one page per case study */
+/* VOICE: confident, energetic, a game programmer's portfolio
+   IDEA: a neon night sign, the cyber-ronin world of ENSO
+   PICTURE: avatar in a spinning neon ring; real game art on every project
+   COLOUR and TYPE: near-black, cyan #3ee6ff + pink #ff3d81; Unbounded 800 + Inter
+   LAYOUT: home (hero, tech marquee, featured, other projects, skills, background) + one page per case study */
 :root{color-scheme:light dark;
 --bg:light-dark(#f7f5f1,#0f0f10);--ink:light-dark(#151414,#efece6);--mute:light-dark(#5d5a55,#a6a199);
 --line:light-dark(#dcd7cf,#2a2927);--card:light-dark(#ffffff,#18181a);--red:light-dark(#d7261e,#ff4f3f);
@@ -50,6 +50,16 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--red);outline-offset
 .mail{margin-top:14px;color:var(--mute);font-size:15px}
 .art{aspect-ratio:1/1;max-height:520px;width:100%}
 .art svg{width:100%;height:100%;display:block}
+.logo{width:38px;height:38px;border-radius:50%;margin-right:10px;object-fit:cover;transition:transform .3s}
+#homeLink:hover .logo{animation:wiggle .6s ease-in-out}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg) scale(1.08)}75%{transform:rotate(8deg) scale(1.08)}}
+.art{position:relative}
+.bob{position:absolute;left:19%;top:19%;width:62%;height:62%;animation:bob 5s ease-in-out infinite}
+.bob img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;box-shadow:0 18px 40px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.art:hover .bob img{transform:rotate(-5deg) scale(1.04)}
+.art svg{position:absolute;inset:0;pointer-events:none}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.bob,#homeLink:hover .logo{animation:none}}
 .stroke{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.6s .2s cubic-bezier(.6,.1,.2,1) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.stroke{animation:none;stroke-dashoffset:0}}
@@ -106,11 +116,55 @@ footer{font-size:14px;color:var(--mute)}
 .nextc{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:860px){.hero,.chero,.body{grid-template-columns:minmax(0,1fr)}.art{max-height:340px;order:-1;margin:0 auto;max-width:340px}.feat{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.top nav button.nl{display:none}}
+
+/* ===== Option A — Néon nocturne ===== */
+html{overflow-x:clip}
+:root,:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark;--bg:#07070c;--ink:#e9ecf5;--mute:#9aa2b8;--line:#1f2233;--card:#0f1019;--red:#ff3d81;--redsoft:rgba(255,61,129,.14);--blk:#0f1019;--night:#0b0c14;--cy:#3ee6ff}
+body{font-family:Inter,system-ui,sans-serif}
+h1,h2,h3,.xp b,.top>a{font-family:Unbounded,system-ui,sans-serif}
+h1{font-size:clamp(40px,7vw,88px);line-height:.98;color:#fff}
+.chero h1{font-size:clamp(34px,5vw,60px)}
+h2{color:#fff}
+.top{background:rgba(7,7,12,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom-color:#14162a}
+.top nav button.nl{color:#b8bfd3}.top nav button.nl:hover{background:none;color:var(--cy)}
+.lang{border-color:#2c3146}.lang button[aria-pressed=true]{background:var(--cy);color:#07070c}
+button:focus-visible,a:focus-visible{outline-color:var(--cy)}
+.role{display:flex;align-items:center;gap:10px}
+.role::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--red);flex:none;animation:pulse 1.8s infinite}
+.glow{animation:flick 6s infinite;text-shadow:0 0 22px rgba(62,230,255,.5)}
+.btn{border-color:#2c3146;border-radius:12px;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--cy);border-color:var(--cy);color:#07070c}
+.btn.main{color:#07070c;font-weight:700}.btn.main:hover{background:#fff;border-color:#fff}
+.ring{position:absolute;inset:6%;border-radius:50%;border:3px dashed var(--cy);opacity:.75;animation:spin 16s linear infinite}
+.halo{position:absolute;left:19%;top:19%;width:62%;height:62%;border-radius:50%;box-shadow:0 0 70px rgba(255,61,129,.5),0 0 0 2px rgba(255,61,129,.6)}
+.bob img{box-shadow:none}
+.marq{border-block:1px solid #14162a;padding:18px 0;overflow:hidden;white-space:nowrap}
+.marq div{display:inline-flex;gap:48px;font:600 22px Unbounded,system-ui,sans-serif;color:#3a4060;animation:marq 30s linear infinite}
+.marq .c{color:var(--cy)}.marq .p{color:var(--red)}
+.fc,.card,.gal figure{background:var(--card);border-color:var(--line);border-radius:20px}
+.gal figure{border:1px solid var(--line)}
+.fc{transition:transform .35s,border-color .35s}.fc:hover{transform:translateY(-6px);border-color:var(--cy)}
+.fc .pic{overflow:hidden}.fc .pic>*{transition:transform .6s}.fc:hover .pic>*{transform:scale(1.06)}
+.card{transition:transform .3s,border-color .3s}.card:hover{transform:translateY(-4px);border-color:#2f3550}
+.fc .more,.skills h3{color:var(--cy)}
+.status{background:#1a1d2c;color:#c9cfe0}.status.wip{background:var(--redsoft);color:var(--red)}
+.tags span{border-color:#2a2e44;color:#b8bfd3}
+.ink{background:#0b0c14;color:var(--ink);border-top:1px solid #14162a}
+.ink .mute{color:#8b93ab}.xp div{border-top-color:#23263a}.xp b{color:#fff}
+.chero .pic{border-radius:20px;border:1px solid var(--line)}
+.note{background:var(--redsoft)}
+.rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes flick{0%,19%,21%,62%,64%,100%{opacity:1}20%,63%{opacity:.35}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,61,129,.6)}70%{box-shadow:0 0 0 10px rgba(255,61,129,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.glow,.ring,.marq div,.role::before,.rise{animation:none}}
 </style>
 </head>
 <body>
 <header class="top">
-  <a href="#" id="homeLink">Simo Alami</a>
+  <a href="#" id="homeLink"><img class="logo" src="assets/avatar.jpg" alt="">Simo Alami</a>
   <nav>
     <button class="nl" data-go="projets" data-i="navP">Projets</button>
     <button class="nl" data-go="competences" data-i="navS">Compétences</button>
@@ -135,7 +189,7 @@ const T = {
   lead:"Étudiant au baccalauréat en informatique à l'Université Laval, je construis des jeux, des outils et des systèmes en C++, C#, Python et JavaScript. Mon objectif : devenir programmeur graphique.",
   see:"Voir les projets",mail:"Courriel",featT:"Projets phares",featS:"Les projets sur lesquels je travaille le plus, avec le détail de ce que je fais.",
   otherT:"Autres projets",otherS:"Projets universitaires terminés.",skillsT:"Compétences",xpT:"Parcours",
-  inprog:"En cours",done:"Terminé",read:"Lire l'étude de cas →",back:"← Tous les projets",code:"Code sur GitHub",galT:"Art du jeu",galS:"Sprites et animations réels du jeu. Direction artistique par moi, sprites générés avec SpriteCook puis intégrés dans Unity.",
+  inprog:"En cours",done:"Terminé",read:"Lire l'étude de cas →",back:"← Tous les projets",code:"Code sur GitHub",galT:"Art du jeu",galS:"Sprites et animations du jeu : boss, ennemis et tenues du héros selon le monde.",
   role2:"Rôle",stack:"Technologies",when:"Période",ctx:"Contexte",next:"Projet suivant →",
   sk:[["Langages","C#, C++, Python, JavaScript, SQL, HTML/CSS"],["Moteurs et outils","Unreal Engine 5, Unity 6, Visual Studio, Git/GitHub, Valgrind"],["Domaines","Gameplay et IA d'ennemis, structures de données, traitement de signal et ML, assurance qualité"],["Langues","Français et arabe (langues maternelles), anglais (avancé)"]]},
  en:{navP:"Projects",navS:"Skills",navX:"Background",
@@ -143,7 +197,7 @@ const T = {
   lead:"Computer science student at Université Laval building games, tools and systems in C++, C#, Python and JavaScript. My goal: becoming a graphics programmer.",
   see:"See projects",mail:"Email",featT:"Featured projects",featS:"The projects I spend the most time on, with the detail of what I do.",
   otherT:"Other projects",otherS:"Completed university projects.",skillsT:"Skills",xpT:"Background",
-  inprog:"In progress",done:"Completed",read:"Read the case study →",back:"← All projects",code:"Code on GitHub",galT:"Game art",galS:"Actual sprites and animations from the game. Art direction by me, sprites generated with SpriteCook then integrated in Unity.",
+  inprog:"In progress",done:"Completed",read:"Read the case study →",back:"← All projects",code:"Code on GitHub",galT:"Game art",galS:"Sprites and animations from the game: bosses, enemies and the hero's outfit for each world.",
   role2:"Role",stack:"Stack",when:"When",ctx:"Context",next:"Next project →",
   sk:[["Languages","C#, C++, Python, JavaScript, SQL, HTML/CSS"],["Engines & tools","Unreal Engine 5, Unity 6, Visual Studio, Git/GitHub, Valgrind"],["Areas","Gameplay and enemy AI, data structures, signal processing and ML, quality assurance"],["Spoken","French and Arabic (native), English (advanced)"]]}
 };
@@ -193,7 +247,7 @@ const ART = {
 const CASES = [
  {id:"enso",art:"enso",t:"ENSO",wip:1,when:{fr:"2026 – aujourd'hui",en:"2026 – present"},
   ctx:{fr:"Projet personnel, objectif sortie sur Steam",en:"Personal project, aiming for a Steam release"},
-  role:{fr:"Seul développeur : design, programmation, direction artistique",en:"Solo developer: design, programming, art direction"},
+  role:{fr:"Créateur du projet : concept, game design, direction artistique",en:"Project creator: concept, game design, art direction"},
   stack:"Unity 6 · C# · 2D",
   pitch:{fr:"Jeu d'action-plateforme 2D : un ronin d'encre traverse des mondes à thème et affronte des boss rapides et exigeants.",en:"2D action platformer: an ink ronin crosses themed worlds and faces fast, demanding bosses."},
   s:{fr:[["Le concept","<p>ENSO mélange l'exploration d'un Metroidvania et des combats de boss exigeants, entre Hollow Knight, Dead Cells et Sekiro. Les attaques sont lisibles mais rapides : le joueur doit esquiver ou parer au bon moment.</p><p>Chaque monde a son thème, ses ennemis et ses pouvoirs : Japon féodal de nuit, fantaisie, futuriste.</p>"],
@@ -206,16 +260,16 @@ const CASES = [
    ["Next steps","<ul><li>Finish the other two worlds and the final boss.</li><li>Finalise enemy sprites and animations.</li><li>Piano and strings soundtrack, with a heavier boss theme.</li></ul>"]]}},
  {id:"last-bus-out",art:"bus",t:"Last Bus Out",wip:1,when:{fr:"2026 – aujourd'hui",en:"2026 – present"},
   ctx:{fr:"Projet personnel, game design document rédigé",en:"Personal project, game design document written"},
-  role:{fr:"Concept, game design et programmation C++",en:"Concept, game design and C++ programming"},
+  role:{fr:"Créateur du projet : concept, game design, direction technique",en:"Project creator: concept, game design, technical direction"},
   stack:"Unreal Engine 5 · C++ · Steam · Git",
   pitch:{fr:"Jeu coopératif d'horreur et d'extraction pour 2 à 4 joueurs : un bus qui ne s'arrête jamais, des bâtiments à piller avant qu'il ne parte.",en:"Co-op horror extraction game for 2–4 players: a bus that never stops, and buildings to loot before it's gone."},
   s:{fr:[["Le concept","<p>Inspiré de Lethal Company et R.E.P.O. Le bus roule sans jamais s'arrêter. L'équipe saute dehors, pille un bâtiment et doit rattraper le bus avant d'être distancée, ou rattrapée par ce qui rôde.</p>"],
    ["Ennemis à mécaniques","<ul><li>Chaque ennemi a une règle que les joueurs apprennent : un ennemi sourd, des lasers à éviter en s'accroupissant ou en sautant.</li><li>Des poursuivants harcèlent les coureurs sur le chemin du retour vers le bus.</li><li>Objectif : des ennemis qui font vraiment peur.</li></ul>"],
-   ["Technique","<ul><li>Vue à la première personne, sous Unreal Engine 5 (projet migré depuis Unity), entièrement programmé en C++.</li><li>Bus synchronisé simplement : l'hôte fait avancer une seule valeur, la distance parcourue le long du trajet, et chaque joueur en déduit la position du bus, ce qui évite les saccades.</li><li>Multijoueur en ligne dès le départ, via le réseau Steam.</li><li>Bâtiments intérieurs détaillés : sous-sol, escaliers, étages.</li><li>Versionné avec Git et GitHub.</li></ul>"],
+   ["Technique","<ul><li>Vue à la première personne, sous Unreal Engine 5 (projet migré depuis Unity), entièrement programmé en C++.</li><li>Bus synchronisé simplement : l'hôte fait avancer une seule valeur, la distance parcourue le long du trajet, et chaque joueur en déduit la position du bus, ce qui évite les saccades.</li><li>Multijoueur en ligne dès le départ, via le réseau Steam.</li><li>Bâtiments intérieurs détaillés : sous-sol, escaliers, étages.</li><li>Décors, accessoires et créatures tirés d'assets gratuits pour Unreal Engine 5 sur Fab, choisis puis intégrés au jeu : maisons, station-service, épaves de voitures, ennemis.</li><li>Versionné avec Git et GitHub.</li></ul>"],
    ["Prochaines étapes","<ul><li>Prototype jouable de la boucle pillage, puis retour au bus.</li><li>Premiers ennemis et intérieurs.</li><li>Équipage : même uniforme, quatre visages différents.</li></ul>"]],
   en:[["The concept","<p>Inspired by Lethal Company and R.E.P.O. The bus keeps driving and never stops. The crew jumps off, loots a building and has to catch up before falling behind, or being caught by whatever is out there.</p>"],
    ["Enemies with rules","<ul><li>Each enemy has a rule players learn: a deaf enemy, lasers you avoid by crouching or jumping.</li><li>Chasers harass runners on the way back to the bus.</li><li>Goal: enemies that are genuinely scary.</li></ul>"],
-   ["Tech","<ul><li>First-person, built in Unreal Engine 5 (migrated from Unity), written entirely in C++.</li><li>Simple bus sync: the host advances a single value, the distance travelled along the route, and every player derives the bus position from it, which avoids jitter.</li><li>Online multiplayer from day one, over Steam networking.</li><li>Detailed interiors: basements, stairs, upper floors.</li><li>Versioned with Git and GitHub.</li></ul>"],
+   ["Tech","<ul><li>First-person, built in Unreal Engine 5 (migrated from Unity), written entirely in C++.</li><li>Simple bus sync: the host advances a single value, the distance travelled along the route, and every player derives the bus position from it, which avoids jitter.</li><li>Online multiplayer from day one, over Steam networking.</li><li>Detailed interiors: basements, stairs, upper floors.</li><li>Environments, props and creatures built from free Unreal Engine 5 assets on Fab, selected and integrated into the game: houses, gas station, wrecked cars, enemies.</li><li>Versioned with Git and GitHub.</li></ul>"],
    ["Next steps","<ul><li>Playable prototype of the loot-then-catch-the-bus loop.</li><li>First enemies and interiors.</li><li>Crew: same uniform, four different faces.</li></ul>"]]}},
  {id:"f1-jedi",art:"emg",t:"F1-Jedi",wip:1,when:{fr:"Automne 2026 – aujourd'hui",en:"Fall 2026 – present"},
   ctx:{fr:"Club d'IA de l'Université Laval (CIA), avec le VAUL",en:"Université Laval AI Club (CIA), with VAUL"},
@@ -286,24 +340,18 @@ const app = document.getElementById("app");
 const byId = id => CASES.find(c => c.id === id);
 const enArt = a => ART[a]();
 
-const heroSvg = `<svg viewBox="0 0 400 400" aria-hidden="true"><defs>
- <radialGradient id="g1" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ff8a7a"/><stop offset=".45" stop-color="#d7261e"/><stop offset="1" stop-color="#5a0d09"/></radialGradient>
- <radialGradient id="g2" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#c9c4bb"/><stop offset="1" stop-color="#3d3a36"/></radialGradient>
- <radialGradient id="g3" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#8b8781"/><stop offset=".5" stop-color="#2b2a28"/><stop offset="1" stop-color="#050505"/></radialGradient>
- <radialGradient id="sh"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
- <ellipse cx="128" cy="276" rx="52" ry="11" fill="url(#sh)"/><ellipse cx="248" cy="282" rx="72" ry="14" fill="url(#sh)"/><ellipse cx="300" cy="254" rx="34" ry="7" fill="url(#sh)"/>
- <circle cx="300" cy="226" r="30" fill="url(#g3)"/><circle cx="128" cy="232" r="46" fill="url(#g2)"/><circle cx="232" cy="210" r="72" fill="url(#g1)"/><circle cx="208" cy="180" r="9" fill="#fff" opacity=".7"/>
- <path class="stroke" d="M318 92 C 262 40,138 44,82 118 C 30 188,58 300,150 340 C 236 376,330 332,354 246 C 370 186,356 140,332 110" fill="none" stroke="var(--ink)" stroke-width="20" stroke-linecap="round"/>
- <path class="stroke" d="M330 106 C 300 70,250 54,208 56" fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" opacity=".55"/></svg>`;
+const MARQ = [["C++",""],["Unreal Engine 5","c"],["Unity 6",""],["C#","p"],["Python",""],["JavaScript",""],["Multijoueur","c"],["Git",""],["Traitement du signal","p"]].map(([t,c])=>`<span class="${c}">${t}</span>`).join("");
+const heroSvg = `<div class="ring"></div><div class="halo"></div><div class="bob"><img src="assets/avatar.jpg" alt="Portrait illustré de Simo Alami"></div>`;
 
 const home = () => { const t = T[lang]; return `
  <section class="band"><div class="wrap hero"><div>
-  <p class="role">${t.role}</p><h1>Simo Alami</h1><p class="lead">${t.lead}</p>
+  <div class="rise"><p class="role">${t.role}</p><h1 class="glow">Simo<br>Alami</h1><p class="lead">${t.lead}</p>
   <div class="links"><button class="btn main" data-go="projets">${t.see}</button>
    <a class="btn" href="${GH}" target="_blank" rel="noopener">${ICON.gh}GitHub</a>
    <a class="btn" href="${LI}" target="_blank" rel="noopener">${ICON.li}LinkedIn</a></div>
-  <p class="mail">${t.mail} : simo-can@outlook.com</p></div>
+  <p class="mail">${t.mail} : simo-can@outlook.com</p></div></div>
   <div class="art">${heroSvg}</div></div></section>
+ <div class="marq" aria-hidden="true"><div>${MARQ}${MARQ}</div></div>
  <section class="band sec" id="projets"><div class="wrap">
   <div class="head"><div><h2>${t.featT}</h2><p class="sub">${t.featS}</p></div></div>
   <div class="feat">${FEAT.map(id=>{const c=byId(id);return `<button class="fc" data-case="${id}"><div class="pic">${enArt(c.art)}</div><div class="txt">
