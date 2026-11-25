@@ -182,12 +182,12 @@ button:focus-visible,a:focus-visible{outline-color:var(--cy)}
 
 <script>
 {
-const GH = "https://github.com/Simo012345", LI = "https://www.linkedin.com/in/mohamedalami2";
+const GH = "https://github.com/Simo012345", LI = "https://www.linkedin.com/in/simoalami2";
 const T = {
  fr:{navP:"Projets",navS:"Compétences",navX:"Parcours",
   role:"Étudiant au bac en informatique · Programmation de jeux et graphique",
   lead:"Étudiant au baccalauréat en informatique à l'Université Laval, je construis des jeux, des outils et des systèmes en C++, C#, Python et JavaScript. Mon objectif : devenir programmeur graphique.",
-  see:"Voir les projets",mail:"Courriel",featT:"Projets phares",featS:"Les projets sur lesquels je travaille le plus, avec le détail de ce que je fais.",
+  see:"Voir les projets",cv:"CV (PDF)",cvf:"assets/CV_Simo_Alami_FR.pdf",mail:"Courriel",featT:"Projets phares",featS:"Les projets sur lesquels je travaille le plus, avec le détail de ce que je fais.",
   otherT:"Autres projets",otherS:"Projets universitaires terminés.",skillsT:"Compétences",xpT:"Parcours",
   inprog:"En cours",done:"Terminé",read:"Lire l'étude de cas →",back:"← Tous les projets",code:"Code sur GitHub",galT:"Art du jeu",galS:"Sprites et animations du jeu : boss, ennemis et tenues du héros selon le monde.",
   role2:"Rôle",stack:"Technologies",when:"Période",ctx:"Contexte",next:"Projet suivant →",
@@ -195,7 +195,7 @@ const T = {
  en:{navP:"Projects",navS:"Skills",navX:"Background",
   role:"Computer science student · Game & graphics programming",
   lead:"Computer science student at Université Laval building games, tools and systems in C++, C#, Python and JavaScript. My goal: becoming a graphics programmer.",
-  see:"See projects",mail:"Email",featT:"Featured projects",featS:"The projects I spend the most time on, with the detail of what I do.",
+  see:"See projects",cv:"Resume (PDF)",cvf:"assets/CV_Simo_Alami_EN.pdf",mail:"Email",featT:"Featured projects",featS:"The projects I spend the most time on, with the detail of what I do.",
   otherT:"Other projects",otherS:"Completed university projects.",skillsT:"Skills",xpT:"Background",
   inprog:"In progress",done:"Completed",read:"Read the case study →",back:"← All projects",code:"Code on GitHub",galT:"Game art",galS:"Sprites and animations from the game: bosses, enemies and the hero's outfit for each world.",
   role2:"Role",stack:"Stack",when:"When",ctx:"Context",next:"Next project →",
@@ -347,6 +347,7 @@ const home = () => { const t = T[lang]; return `
  <section class="band"><div class="wrap hero"><div>
   <div class="rise"><p class="role">${t.role}</p><h1 class="glow">Simo<br>Alami</h1><p class="lead">${t.lead}</p>
   <div class="links"><button class="btn main" data-go="projets">${t.see}</button>
+   <a class="btn" href="${t.cvf}" target="_blank" rel="noopener">${t.cv}</a>
    <a class="btn" href="${GH}" target="_blank" rel="noopener">${ICON.gh}GitHub</a>
    <a class="btn" href="${LI}" target="_blank" rel="noopener">${ICON.li}LinkedIn</a></div>
   <p class="mail">${t.mail} : simo-can@outlook.com</p></div></div>
