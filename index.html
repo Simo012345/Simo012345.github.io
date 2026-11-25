@@ -137,7 +137,7 @@ const T = {
   otherT:"Autres projets",otherS:"Projets universitaires terminés.",skillsT:"Compétences",xpT:"Parcours",
   inprog:"En cours",done:"Terminé",read:"Lire l'étude de cas →",back:"← Tous les projets",code:"Code sur GitHub",galT:"Art du jeu",galS:"Sprites et animations réels du jeu. Direction artistique par moi, sprites générés avec SpriteCook puis intégrés dans Unity.",
   role2:"Rôle",stack:"Technologies",when:"Période",ctx:"Contexte",next:"Projet suivant →",
-  sk:[["Langages","C#, C++, Python, JavaScript, SQL, HTML/CSS"],["Moteurs et outils","Unity 6 (2D et URP), Visual Studio, Git/GitHub, Valgrind"],["Domaines","Gameplay et IA d'ennemis, structures de données, traitement de signal et ML, assurance qualité"],["Langues","Français et arabe (langues maternelles), anglais (avancé)"]]},
+  sk:[["Langages","C#, C++, Python, JavaScript, SQL, HTML/CSS"],["Moteurs et outils","Unreal Engine 5, Unity 6, Visual Studio, Git/GitHub, Valgrind"],["Domaines","Gameplay et IA d'ennemis, structures de données, traitement de signal et ML, assurance qualité"],["Langues","Français et arabe (langues maternelles), anglais (avancé)"]]},
  en:{navP:"Projects",navS:"Skills",navX:"Background",
   role:"Computer science student · Game & graphics programming",
   lead:"Computer science student at Université Laval building games, tools and systems in C++, C#, Python and JavaScript. My goal: becoming a graphics programmer.",
@@ -145,7 +145,7 @@ const T = {
   otherT:"Other projects",otherS:"Completed university projects.",skillsT:"Skills",xpT:"Background",
   inprog:"In progress",done:"Completed",read:"Read the case study →",back:"← All projects",code:"Code on GitHub",galT:"Game art",galS:"Actual sprites and animations from the game. Art direction by me, sprites generated with SpriteCook then integrated in Unity.",
   role2:"Role",stack:"Stack",when:"When",ctx:"Context",next:"Next project →",
-  sk:[["Languages","C#, C++, Python, JavaScript, SQL, HTML/CSS"],["Engines & tools","Unity 6 (2D and URP), Visual Studio, Git/GitHub, Valgrind"],["Areas","Gameplay and enemy AI, data structures, signal processing and ML, quality assurance"],["Spoken","French and Arabic (native), English (advanced)"]]}
+  sk:[["Languages","C#, C++, Python, JavaScript, SQL, HTML/CSS"],["Engines & tools","Unreal Engine 5, Unity 6, Visual Studio, Git/GitHub, Valgrind"],["Areas","Gameplay and enemy AI, data structures, signal processing and ML, quality assurance"],["Spoken","French and Arabic (native), English (advanced)"]]}
 };
 
 /* ---------- illustrations ---------- */
@@ -207,15 +207,15 @@ const CASES = [
  {id:"last-bus-out",art:"bus",t:"Last Bus Out",wip:1,when:{fr:"2026 – aujourd'hui",en:"2026 – present"},
   ctx:{fr:"Projet personnel, game design document rédigé",en:"Personal project, game design document written"},
   role:{fr:"Concept, game design et programmation",en:"Concept, game design and programming"},
-  stack:"Unity 6 (3D, URP) · C# · Steam · Git",
+  stack:"Unreal Engine 5 · Steam · Git",
   pitch:{fr:"Jeu coopératif d'horreur et d'extraction pour 2 à 4 joueurs : un bus qui ne s'arrête jamais, des bâtiments à piller avant qu'il ne parte.",en:"Co-op horror extraction game for 2–4 players: a bus that never stops, and buildings to loot before it's gone."},
   s:{fr:[["Le concept","<p>Inspiré de Lethal Company et R.E.P.O. Le bus roule sans jamais s'arrêter. L'équipe saute dehors, pille un bâtiment et doit rattraper le bus avant d'être distancée, ou rattrapée par ce qui rôde.</p>"],
    ["Ennemis à mécaniques","<ul><li>Chaque ennemi a une règle que les joueurs apprennent : un ennemi sourd, des lasers à éviter en s'accroupissant ou en sautant.</li><li>Des poursuivants harcèlent les coureurs sur le chemin du retour vers le bus.</li><li>Objectif : des ennemis qui font vraiment peur.</li></ul>"],
-   ["Technique","<ul><li>Vue à la première personne, Unity en 3D avec URP.</li><li>Multijoueur en ligne dès le départ, via le réseau Steam.</li><li>Bâtiments intérieurs détaillés : sous-sol, escaliers, étages.</li><li>Versionné avec Git et GitHub.</li></ul>"],
+   ["Technique","<ul><li>Vue à la première personne, sous Unreal Engine 5 (projet migré depuis Unity).</li><li>Bus synchronisé simplement : l'hôte fait avancer une seule valeur, la distance parcourue le long du trajet, et chaque joueur en déduit la position du bus, ce qui évite les saccades.</li><li>Multijoueur en ligne dès le départ, via le réseau Steam.</li><li>Bâtiments intérieurs détaillés : sous-sol, escaliers, étages.</li><li>Versionné avec Git et GitHub.</li></ul>"],
    ["Prochaines étapes","<ul><li>Prototype jouable de la boucle pillage, puis retour au bus.</li><li>Premiers ennemis et intérieurs.</li><li>Équipage : même uniforme, quatre visages différents.</li></ul>"]],
   en:[["The concept","<p>Inspired by Lethal Company and R.E.P.O. The bus keeps driving and never stops. The crew jumps off, loots a building and has to catch up before falling behind, or being caught by whatever is out there.</p>"],
    ["Enemies with rules","<ul><li>Each enemy has a rule players learn: a deaf enemy, lasers you avoid by crouching or jumping.</li><li>Chasers harass runners on the way back to the bus.</li><li>Goal: enemies that are genuinely scary.</li></ul>"],
-   ["Tech","<ul><li>First-person, Unity 3D with URP.</li><li>Online multiplayer from day one, over Steam networking.</li><li>Detailed interiors: basements, stairs, upper floors.</li><li>Versioned with Git and GitHub.</li></ul>"],
+   ["Tech","<ul><li>First-person, built in Unreal Engine 5 (migrated from Unity).</li><li>Simple bus sync: the host advances a single value, the distance travelled along the route, and every player derives the bus position from it, which avoids jitter.</li><li>Online multiplayer from day one, over Steam networking.</li><li>Detailed interiors: basements, stairs, upper floors.</li><li>Versioned with Git and GitHub.</li></ul>"],
    ["Next steps","<ul><li>Playable prototype of the loot-then-catch-the-bus loop.</li><li>First enemies and interiors.</li><li>Crew: same uniform, four different faces.</li></ul>"]]}},
  {id:"f1-jedi",art:"emg",t:"F1-Jedi",wip:1,when:{fr:"Automne 2026 – aujourd'hui",en:"Fall 2026 – present"},
   ctx:{fr:"Club d'IA de l'Université Laval (CIA), avec le VAUL",en:"Université Laval AI Club (CIA), with VAUL"},
